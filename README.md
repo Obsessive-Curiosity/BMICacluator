@@ -6,3 +6,4 @@ Currently, two official plugins are available:
 # BMI_Calculator
 # BMICacluator
 # BMICacluator
+# BMICacluator
