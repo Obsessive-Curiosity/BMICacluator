@@ -1,4 +1,4 @@
-import { useState, useCallback, useLayoutEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function useResult({ bmi }) {
   const [result, setResult] = useState("결과");
@@ -39,13 +39,13 @@ export default function useResult({ bmi }) {
   }, []);
 
   // bmi값이 바뀔 때마다 result값 바꾸기
-  useLayoutEffect(() => {
+  useEffect(() => {
     console.log("bmi값이 변경되었습니다!");
     const newResult = calculateResult(bmi);
     setResult(newResult);
     const newImage = updateResult(newResult);
     setImg(newImage);
-  }, [bmi]);
+  }, [bmi, calculateResult, updateResult]);
 
   return [result, img];
 }
