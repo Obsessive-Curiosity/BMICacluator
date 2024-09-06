@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export default function useResult({ bmi }) {
   const [result, setResult] = useState("결과");
