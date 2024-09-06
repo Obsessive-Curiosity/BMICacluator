@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-import sadFatImg from "../img/sad_fat.png";
-import neutralFatImg from "../img/neutral_fat.png";
-import happyFatImg from "../img/happy_fat.png";
+import { useState, useEffect, useCallback } from "react";
 
-export default function useResult(bmi) {
+export default function useResult({ bmi }) {
   const [result, setResult] = useState("결과");
   const [img, setImg] = useState({
     src: "",
@@ -11,7 +8,7 @@ export default function useResult(bmi) {
   });
 
   // BMI에 따라 결과를 반환하는 함수
-  const calculateResult = (bmi) => {
+  const calculateResult = useCallback((bmi) => {
     console.log("calculateResult 함수 렌더");
     if (bmi < 18.5) {
       return "저체중";
@@ -26,20 +23,20 @@ export default function useResult(bmi) {
     } else {
       return "3단계 비만";
     }
-  };
+  }, []);
 
   // 결과에 따라 이미지를 업데이트하는 함수
-  const updateResult = (result) => {
+  const updateResult = useCallback((result) => {
     console.log("updateResult 함수 렌더");
     switch (result) {
       case "저체중":
-        return { src: sadFatImg, alt: "sad_fat" };
+        return { src: "/img/sad_fat.png", alt: "sad_fat" }; // 절대 경로
       case "정상":
-        return { src: neutralFatImg, alt: "neutral_fat" };
+        return { src: "/img/neutral_fat.png", alt: "neutral_fat" };
       default:
-        return { src: happyFatImg, alt: "happy_fat" };
+        return { src: "/img/happy_fat.png", alt: "happy_fat" };
     }
-  };
+  }, []);
 
   // bmi값이 바뀔 때마다 result값 바꾸기
   useEffect(() => {

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import useResult from "../Hook/useResult";
 
-function Result(bmi) {
-  const [result, img] = useResult(bmi);
+function Result({ bmi }) {
+  const [result, img] = useResult({ bmi });
 
   return (
     <ResultWrapper>

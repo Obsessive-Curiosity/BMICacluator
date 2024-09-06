@@ -15,6 +15,7 @@ function Input({ setBmi, setVisible }) {
   });
 
   const handleSubmit = (e) => {
+    console.log("handleSubmit 실행");
     e.preventDefault();
     const bmiValue = input.weight / input.height ** 2;
     setBmi(bmiValue.toFixed(2));

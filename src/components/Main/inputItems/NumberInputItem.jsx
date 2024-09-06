@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 function NumberInputItem({ item, handler }) {
   const id = useId();
+
   return (
     <InputWrapper>
       <InputItem
@@ -12,7 +13,10 @@ function NumberInputItem({ item, handler }) {
         id={id}
         placeholder={item === "키" ? "163cm" : "52kg"}
       />
-      <LabelItem>{item}</LabelItem>
+      <LabelItem>
+        {item}
+        {item === "키" ? "cm" : "kg"}
+      </LabelItem>
     </InputWrapper>
   );
 }
