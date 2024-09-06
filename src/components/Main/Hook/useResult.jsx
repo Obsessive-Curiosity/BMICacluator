@@ -8,7 +8,7 @@ export default function useResult({ bmi }) {
   });
 
   // BMI에 따라 결과를 반환하는 함수
-  const calculateResult = useCallback((bmi) => {
+  const calculateResult = (bmi) => {
     console.log("calculateResult 함수 렌더");
     if (bmi < 18.5) {
       return "저체중";
@@ -23,10 +23,10 @@ export default function useResult({ bmi }) {
     } else {
       return "3단계 비만";
     }
-  }, []);
+  };
 
   // 결과에 따라 이미지를 업데이트하는 함수
-  const updateResult = useCallback((result) => {
+  const updateResult = (result) => {
     console.log("updateResult 함수 렌더");
     switch (result) {
       case "저체중":
@@ -36,7 +36,7 @@ export default function useResult({ bmi }) {
       default:
         return { src: "/img/happy_fat.png", alt: "happy_fat" };
     }
-  }, []);
+  };
 
   // bmi값이 바뀔 때마다 result값 바꾸기
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function useResult({ bmi }) {
     setResult(newResult);
     const newImage = updateResult(newResult);
     setImg(newImage);
-  }, [bmi, calculateResult, updateResult]);
+  }, [bmi]);
 
   return [result, img];
 }
