@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import sadFat from "../../../assets/img/sad_fat.png";
+import neutralFat from "../../../assets/img/neutral_fat.png";
+import happyFat from "../../../assets/img/happy_fat.png";
 
 export default function useResult({ bmi }) {
   const [result, setResult] = useState("결과");
@@ -30,11 +33,14 @@ export default function useResult({ bmi }) {
     console.log("updateResult 함수 렌더");
     switch (result) {
       case "저체중":
-        return { src: "/img/sad_fat.png", alt: "sad_fat" }; // 절대 경로
+        return { src: sadFat, alt: "sad_fat" };
       case "정상":
-        return { src: "/img/neutral_fat.png", alt: "neutral_fat" };
+        return {
+          src: neutralFat,
+          alt: "neutral_fat",
+        };
       default:
-        return { src: "/img/happy_fat.png", alt: "happy_fat" };
+        return { src: happyFat, alt: "happy_fat" };
     }
   };
 

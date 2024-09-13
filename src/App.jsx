@@ -6,29 +6,29 @@ import { useState } from "react";
 
 function App() {
   const [visible, setVisible] = useState(false);
-  const [input, setInput] = useState({
-    height: "",
-    weight: "",
-  });
 
   return (
     <>
       <GlobalStyle />
-      <Header setVisible={setVisible} setInput={setInput} />
-      <MainWrapper>
-        <Main
-          visible={visible}
-          setVisible={setVisible}
-          input={input}
-          setInput={setInput}
-        />
-      </MainWrapper>
-      <Footer />
+      <AppWrapper>
+        <Header setVisible={setVisible} />
+        <MainWrapper>
+          <Main visible={visible} setVisible={setVisible} />
+        </MainWrapper>
+        <Footer />
+      </AppWrapper>
     </>
   );
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh; /* 화면의 전체 높이를 차지하게 만듦 */
+`;
 
 const MainWrapper = styled.section`
   width: 80%;
@@ -36,6 +36,7 @@ const MainWrapper = styled.section`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  flex-grow: 1; /* 남은 공간을 채우도록 설정 */
 `;
 
 // 전역 스타일 정의

@@ -12,7 +12,7 @@ function Main({ visible, setVisible }) {
         <Input setBmi={setBmi} setVisible={setVisible} />
       </Card>
       {visible && (
-        <Card className={visible ? "visible" : ""}>
+        <Card>
           <Result bmi={bmi} visible={visible} />
         </Card>
       )}

@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-const FooterWrapper = styled.footer`
-  text-align: center;
-`;
-
-export default Footer;
-
 function Footer() {
   return (
     <FooterWrapper>
@@ -13,3 +7,11 @@ function Footer() {
     </FooterWrapper>
   );
 }
+
+export default Footer;
+
+const FooterWrapper = styled.footer`
+  text-align: center;
+  font-size: 12px;
+  margin: 10px 0;
+`;

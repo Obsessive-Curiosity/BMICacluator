@@ -15,7 +15,7 @@ function NumberInputItem({ item, handler }) {
       />
       <LabelItem>
         {item}
-        {item === "키" ? "cm" : "kg"}
+        {item === "키" ? " (cm)" : " (kg)"}
       </LabelItem>
     </InputWrapper>
   );
