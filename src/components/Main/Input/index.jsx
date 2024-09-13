@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useId } from "react";
 import useInput from "../Hook/useInput";
 import NumberInputItem from "../inputItems/NumberInputItem";
-import { TRUE } from "sass";
 
 function Input({ setBmi, setVisible }) {
   const id = useId();
