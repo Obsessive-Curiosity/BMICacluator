@@ -10,12 +10,12 @@ function Input({ setBmi, setVisible }) {
   const WEIGHT = "몸무게";
 
   const [input, handleHeightChange, handleWeightChange] = useInput({
-    height: 0,
-    weight: 0,
+    height: "",
+    weight: "",
   });
 
   const isNumber = (number) => {
-    return typeof number === "number" ? true : false;
+    return typeof number === "number" && number > 0 ? true : false;
   };
   const handleSubmit = (e) => {
     e.preventDefault();
