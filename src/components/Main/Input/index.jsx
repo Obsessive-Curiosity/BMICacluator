@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useId } from "react";
 import useInput from "../Hook/useInput";
 import NumberInputItem from "../inputItems/NumberInputItem";
+import { TRUE } from "sass";
 
 function Input({ setBmi, setVisible }) {
   const id = useId();
@@ -14,12 +15,18 @@ function Input({ setBmi, setVisible }) {
     weight: 0,
   });
 
+  const isNumber = (number) => {
+    return typeof number === "number" ? true : false;
+  };
   const handleSubmit = (e) => {
-    console.log("handleSubmit 실행");
     e.preventDefault();
-    const bmiValue = input.weight / input.height ** 2;
-    setBmi(bmiValue.toFixed(2));
-    setVisible(true);
+    if (isNumber(input.weight) && isNumber(input.height)) {
+      const bmiValue = input.weight / input.height ** 2;
+      setBmi(bmiValue.toFixed(2));
+      setVisible(true);
+    } else {
+      alert("입력값을 입력하세요!");
+    }
   };
 
   return (
