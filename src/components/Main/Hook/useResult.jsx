@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import sadFat from "../../../assets/img/sad_fat.png";
-import neutralFat from "../../../assets/img/neutral_fat.png";
-import happyFat from "../../../assets/img/happy_fat.png";
+import sadFat from "../../../assets/img/sad_fat.webp";
+import neutralFat from "../../../assets/img/neutral_fat.webp";
+import happyFat from "../../../assets/img/happy_fat.webp";
 
 export default function useResult({ bmi }) {
   const [result, setResult] = useState("결과");
